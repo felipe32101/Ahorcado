@@ -1,7 +1,7 @@
 <template>
   <section>
     <div v-if="temas" id="">
-      <div v-if="!temaSeleccionado" class="div" style="display: flex; display: flex;flex-direction: column;align-items: center;">
+      <div v-if="!temaSeleccionado" class="div" style="display: flex; display: flex;flex-direction: column;align-items: center; gap: 35px;">
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;">Selecciona un tema</h1>
         <div style="display: flex; gap: 18px; flex-wrap: wrap; width: 380px; justify-content: center;">
           <button class="tema" @click="seleccionarTema('Animales')">Animales</button>
@@ -11,7 +11,7 @@
           <button class="tema" @click="seleccionarTema('Marcas')">Marcas</button>
         </div>
       </div>
-      <div v-else>
+      <div v-else style="display: flex; flex-direction: column; gap: 35px;">
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0; ">Selecciona una dificultad</h1>
         <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;display: flex; display: flex;flex-direction: column;align-items: center">
           <button class="tema">Facil</button>
