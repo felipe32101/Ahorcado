@@ -12,13 +12,16 @@
         </div>
       </div>
       <div v-else style="display: flex; flex-direction: column; gap: 35px;">
-        <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0; ">Selecciona una dificultad</h1>
-        <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center;display: flex; display: flex;flex-direction: column;align-items: center">
-          <button class="tema">Facil</button>
-          <button class="tema">Medio</button>
-          <button class="tema">Difcil</button>
-        </div>
-      </div>
+  <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;">Selecciona una dificultad</h1>
+  <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+    <button class="tema" @click="seleccionarDificultad('Facil')">Facil</button>
+    <button class="tema" @click="seleccionarDificultad('Medio')">Medio</button>
+    <button class="tema" @click="seleccionarDificultad('Dificil')">Dificil</button>
+    <!-- Agregar imagen después de seleccionar la dificultad -->
+    <img v-if="dificultadSeleccionada" :src="img" alt="Imagen relacionada al tema y dificultad">
+  </div>
+</div>
+      
     </div>
     <div v-else id="inicio"> 
       <h1 style="color: rgb(253, 239, 214); font-size: 200px; font-family: fantasy; margin: 0;">AHORCADO</h1>
@@ -29,9 +32,11 @@
 
 <script setup>
 import { ref } from 'vue';
+import img from '/src/2.jpg'
 
 const temas = ref(false)
 const temaSeleccionado = ref(null);
+const dificultadSeleccionada = ref(null);
 
 function iniTemas(){
   temas.value = true;
@@ -41,11 +46,16 @@ function iniTemas(){
 function seleccionarTema(tema){
   temaSeleccionado.value = tema;
 } 
-
+function seleccionarDificultad(dificultad) {
+  dificultadSeleccionada.value = dificultad;
+}
 </script>
 
 <style>
-
+img {
+  width: 200px;
+  height: 200px;
+}
 section{
   display: flex;
   justify-content: center;
