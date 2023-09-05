@@ -9,7 +9,7 @@
           <button class="tema" @click="seleccionarTema('Frutas')">Frutas</button>
           <button class="tema" @click="seleccionarTema('Ciudades')">Ciudades</button>
           <button class="tema" @click="seleccionarTema('Colores')">Colores</button>
-          <button class="tema" @click="seleccionarTema('Marcas')">Marcas</button>
+          <button class="tema" @click="seleccionarTema('Marcas')">Marcas de ropa</button>
         </div>
       </div>
       <div v-else style="display: flex; flex-direction: column; gap: 35px;">
@@ -18,11 +18,17 @@
           dificultad</h1>
         <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
           <button class="tema" @click="seleccionarDificultad('Facil')" v-if="!dificultadSeleccionada">Facil</button>
-          <button class="tema" @click="seleccionarDificultad('Medio')" v-if="!dificultadSeleccionada">Medio</button>
-          <button class="tema" @click="seleccionarDificultad('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
+          <button class="tema" @click="('Medio')" v-if="!dificultadSeleccionada">Medio</button>
+          <button class="tema" @click="('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
           <div style="display: flex;">
             <div v-if="dificultadSeleccionada" class="vif"> 
               <img :src="img">
+              <div style=" display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+              <div style="border-bottom: solid 2px black; width: 4%; "></div>
+              <div style="border-bottom: solid 2px black; width: 4%; "></div>
+              <div style="border-bottom: solid 2px black; width: 4%; "></div>
+              <div style="border-bottom: solid 2px black; width: 4%; "></div>
+            </div>
               <div>
                 <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
               </div>
@@ -41,7 +47,16 @@
 
 <script setup>
 import { ref } from 'vue';
-import img from '/src/2.jpg'
+import img from '/src/1.jpg'
+// import img from '/src/2.jpg'
+// import img from '/src/3.jpg'
+// import img from '/src/4.jpg'
+// import img from '/src/5.jpg'
+// import img from '/src/6.jpg'
+// import img from '/src/7.jpg'
+// import img from '/src/8.jpg'
+// import img from '/src/9.jpg'
+
 
 const temas = ref(false)
 const temaSeleccionado = ref(null);
@@ -66,8 +81,7 @@ function seleccionarDificultad(dificultad) {
 
 <style>
 img {
-  width: 200px;
-  height: 200px;
+  height: 400px;
 }
 
 section {
@@ -119,6 +133,6 @@ section {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 90px;
+    gap: 70px;
 }
 </style>
