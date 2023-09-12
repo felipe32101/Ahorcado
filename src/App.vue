@@ -21,14 +21,14 @@
           <button class="tema" @click="seleccionarDificultad('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
           <div style="display: flex;" v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
             <div class="vif"> 
-              <img :src="img">
+              <img :src="img1">
               <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
                 <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
                 <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
                 <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
                 <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
               </div>
-              <div>
+              <div id="letras">
                 <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
               </div>
             </div>
@@ -45,15 +45,15 @@
 
 <script setup>
 import { ref } from 'vue';
-import img from '/src/1.jpg'
-// import img from '/src/2.jpg'
-// import img from '/src/3.jpg'
-// import img from '/src/4.jpg'
-// import img from '/src/5.jpg'
-// import img from '/src/6.jpg'
-// import img from '/src/7.jpg'
-// import img from '/src/8.jpg'
-// import img from '/src/9.jpg'
+import img1 from '/src/1.jpg'
+import img2 from '/src/2.jpg'
+import img3 from '/src/3.jpg'
+import img4 from '/src/4.jpg'
+import img5 from '/src/5.jpg'
+import img6 from '/src/6.jpg'
+import img7 from '/src/7.jpg'
+import img8 from '/src/8.jpg'
+import img9 from '/src/9.jpg'
 
 
 const temas = ref(false)
@@ -128,9 +128,22 @@ section {
 }
 .vif{
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 70px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}
+
+#letras{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 1000px;
+  gap: 5px;
+}
+
+#letras button{
+  width: 100px;
+  height: 30px;
 }
 </style>
