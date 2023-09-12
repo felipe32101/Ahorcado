@@ -1,7 +1,8 @@
 <template>
   <section>
     <div v-if="temas" id="">
-  <div v-if="!temaSeleccionado" class="div" style="display: flex; display: flex;flex-direction: column;align-items: center; gap: 35px;">        
+      <div v-if="!temaSeleccionado" class="div"
+        style="display: flex; display: flex;flex-direction: column;align-items: center; gap: 35px;">
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;">Selecciona un tema</h1>
         <div style="display: flex; gap: 18px; flex-wrap: wrap; width: 380px; justify-content: center;">
           <button class="tema" @click="seleccionarTema('Animales')">Animales</button>
@@ -15,12 +16,224 @@
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;"
           v-if="!dificultadSeleccionada">Selecciona una
           dificultad</h1>
-          <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+        <div
+          style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
           <button class="tema" @click="seleccionarDificultad('Facil')" v-if="!dificultadSeleccionada">Facil</button>
           <button class="tema" @click="seleccionarDificultad('Medio')" v-if="!dificultadSeleccionada">Medio</button>
           <button class="tema" @click="seleccionarDificultad('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
-          <div style="display: flex;" v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
-            <div class="vif"> 
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Medio'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Dificil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Medio'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Dificl'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Medio'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Dificl'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Medio'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Dificl'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Medio'">
+            <div class="vif">
+              <img :src="img">
+              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              </div>
+              <div>
+                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              </div>
+            </div>
+          </div>
+          <div style="display: flex;"
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Dificil'">
+            <div class="vif">
               <img :src="img">
               <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
                 <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
@@ -124,13 +337,13 @@ section {
 .tema:hover {
   background: rgb(253, 239, 214);
   cursor: pointer;
-  
+
 }
-.vif{
+
+.vif {
   display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 70px;
-}
-</style>
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 70px;
+}</style>
