@@ -16,8 +16,7 @@
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;"
           v-if="!dificultadSeleccionada">Selecciona una
           dificultad</h1>
-        <div
-          style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+        <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
           <button class="tema" @click="seleccionarDificultad('Facil')" v-if="!dificultadSeleccionada">Facil</button>
           <button class="tema" @click="seleccionarDificultad('Medio')" v-if="!dificultadSeleccionada">Medio</button>
           <button class="tema" @click="seleccionarDificultad('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
@@ -97,7 +96,7 @@
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Dificl'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Dificigil'">
             <div class="vif">
               <img :src="img">
               <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
@@ -142,7 +141,7 @@
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Dificl'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Dificigil'">
             <div class="vif">
               <img :src="img">
               <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
@@ -187,7 +186,7 @@
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Dificl'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Dificigil'">
             <div class="vif">
               <img :src="img">
               <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
