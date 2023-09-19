@@ -257,7 +257,7 @@
 
 <script setup>
 import { ref } from 'vue';
-import img1 from '/src/1.jpg'
+import img from '/src/1.jpg'
 import img2 from '/src/2.jpg'
 import img3 from '/src/3.jpg'
 import img4 from '/src/4.jpg'
