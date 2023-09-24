@@ -38,6 +38,17 @@
                 </button>
               </div>
             </div>
+            <div v-if="palabraAdivinada">
+              <img :src="img10">
+              <button @click="seleccionarOtroTema">Elegir otro tema</button>
+              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+            </div>
+            <div v-if="palabraIncorrecta">
+              <img :src="img11">
+              <button @click="seleccionarOtroTema">Elegir otro tema</button>
+              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+            </div>
+
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Medio'">
@@ -251,6 +262,7 @@
           </div>
         </div>
       </div>
+
     </div>
     <div v-else id="inicio">
       <h1 style="color: rgb(253, 239, 214); font-size: 200px; font-family: fantasy; margin: 0;">AHORCADO</h1>
@@ -270,6 +282,7 @@ import img6 from '/src/6.jpg'
 import img7 from '/src/7.jpg'
 import img8 from '/src/8.jpg'
 import img9 from '/src/9.jpg'
+import img10 from '/src/10.jpg'
 
 const juegoGanado = ref(false);
 const juegoPerdido = ref(false);
@@ -284,6 +297,9 @@ const palabraSeleccionada = ref(null);
 const letrasAdivinadas = ref([]);
 const letrasIncorrectas = ref([]);
 const palabraActual = ref('');
+const palabraAdivinada = ref(false);
+const palabraIncorrecta = ref(false);
+
 
 const alfabeto = ref(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']);
 
@@ -318,6 +334,7 @@ function adivinarLetra(letra) {
           .join('');
         if (palabraActual.value === palabraSeleccionada.value) {
           juegoGanado.value = true;
+          palabraAdivinada.value = true;
           console.log('¡Ganaste!');
         }
       } else {
@@ -329,11 +346,35 @@ function adivinarLetra(letra) {
         } else {
           imagenOportunidad.value = img;
           juegoPerdido.value = true;
+          palabraIncorrecta.value = true;
           console.log('¡Perdiste!');
         }
       }
     }
   }
+}
+
+function reiniciarJuego() {
+  adivinada.value = false;
+  palabraSeleccionada.value = null;
+  letrasAdivinadas.value = [];
+  letrasIncorrectas.value = [];
+  oportunidadesIncorrectas.value = 0;
+  imagenOportunidad.value = img;
+  juegoGanado.value = false;
+  juegoPerdido.value = false;
+  dificultadSeleccionada.value = null;
+  palabraActual.value = '';
+}
+function seleccionarOtroTema() {
+  temaSeleccionado.value = null;
+  dificultadSeleccionada.value = null;
+  reiniciarJuego();
+}
+
+function seleccionarOtraDificultad() {
+  dificultadSeleccionada.value = null;
+  reiniciarJuego();
 }
 </script>
 
