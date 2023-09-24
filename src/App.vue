@@ -271,12 +271,19 @@ import img7 from '/src/7.jpg'
 import img8 from '/src/8.jpg'
 import img9 from '/src/9.jpg'
 
+const juegoGanado = ref(false);
+const juegoPerdido = ref(false);
 const imagenesOportunidad = [img2, img3, img4, img5, img6, img7, img8, img9];
 const oportunidadesIncorrectas = ref(0);
 const imagenOportunidad = ref(img);
 const temas = ref(false)
 const temaSeleccionado = ref(null);
 const dificultadSeleccionada = ref(null);
+const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATON'];
+const palabraSeleccionada = ref(null);
+const letrasAdivinadas = ref([]);
+const letrasIncorrectas = ref([]);
+const palabraActual = ref('');
 
 const alfabeto = ref(['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']);
 
@@ -290,11 +297,7 @@ function seleccionarTema(tema) {
   temaSeleccionado.value = tema;
 }
 
-const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATÓN'];
-const palabraSeleccionada = ref(null);
-const letrasAdivinadas = ref([]);
-const letrasIncorrectas = ref([]);
-const palabraActual = ref('');
+
 
 function seleccionarDificultad(dificultad) {
   dificultadSeleccionada.value = dificultad;
@@ -305,27 +308,33 @@ function seleccionarDificultad(dificultad) {
 }
 
 function adivinarLetra(letra) {
-  if (palabraSeleccionada.value && !letrasAdivinadas.value.includes(letra) && !letrasIncorrectas.value.includes(letra)) {
-    if (palabraSeleccionada.value.includes(letra)) {
-      letrasAdivinadas.value.push(letra);
-      palabraActual.value = palabraSeleccionada.value
-        .split('')
-        .map(char => (letrasAdivinadas.value.includes(char) ? char : '_'))
-        .join('');
-    } else {
-      letrasIncorrectas.value.push(letra);
-      oportunidadesIncorrectas.value++;
-
-      if (oportunidadesIncorrectas.value < imagenesOportunidad.length) {
-        imagenOportunidad.value = imagenesOportunidad[oportunidadesIncorrectas.value];
+  if (!juegoGanado.value && !juegoPerdido.value) {
+    if (palabraSeleccionada.value && !letrasAdivinadas.value.includes(letra) && !letrasIncorrectas.value.includes(letra)) {
+      if (palabraSeleccionada.value.includes(letra)) {
+        letrasAdivinadas.value.push(letra);
+        palabraActual.value = palabraSeleccionada.value
+          .split('')
+          .map(char => (letrasAdivinadas.value.includes(char) ? char : '_'))
+          .join('');
+        if (palabraActual.value === palabraSeleccionada.value) {
+          juegoGanado.value = true;
+          console.log('¡Ganaste!');
+        }
       } else {
-        imagenOportunidad.value = img;
-        console.log('Juego terminado');
+        letrasIncorrectas.value.push(letra);
+        oportunidadesIncorrectas.value++;
+
+        if (oportunidadesIncorrectas.value < imagenesOportunidad.length) {
+          imagenOportunidad.value = imagenesOportunidad[oportunidadesIncorrectas.value];
+        } else {
+          imagenOportunidad.value = img;
+          juegoPerdido.value = true;
+          console.log('¡Perdiste!');
+        }
       }
     }
   }
 }
-
 </script>
 
 
