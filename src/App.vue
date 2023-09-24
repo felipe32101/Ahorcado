@@ -16,24 +16,29 @@
         <h1 style="color: rgb(253, 239, 214); font-size: 100px; font-family: fantasy; margin: 0;"
           v-if="!dificultadSeleccionada">Selecciona una
           dificultad</h1>
-        <div style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
+        <div
+          style="display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; display: flex; flex-direction: column; align-items: center;">
           <button class="tema" @click="seleccionarDificultad('Facil')" v-if="!dificultadSeleccionada">Facil</button>
           <button class="tema" @click="seleccionarDificultad('Medio')" v-if="!dificultadSeleccionada">Medio</button>
           <button class="tema" @click="seleccionarDificultad('Dificil')" v-if="!dificultadSeleccionada">Dificil</button>
           <div style="display: flex;"
-          v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
-    <div class="vif">
-      <img :src="imagenOportunidad">
-      <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-        <!-- ... Resto de tu código existente ... -->
-      </div>
-      <div class="letras">
-        <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)" :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
-          {{ letra }}
-        </button>
-      </div>
-    </div>
-  </div>
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
+            <div class="vif">
+              <img :src="imagenOportunidad">
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+                <!-- Aquí muestra las letras adivinadas -->
+                <div class="letras-adivinadas">
+                  <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                </div>
+              </div>
+              <div class="letras">
+                <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                  :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                  {{ letra }}
+                </button>
+              </div>
+            </div>
+          </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
@@ -266,7 +271,7 @@ import img7 from '/src/7.jpg'
 import img8 from '/src/8.jpg'
 import img9 from '/src/9.jpg'
 
-const imagenesOportunidad = [img2, img3, img4, img5, img6, img7, img8, img9]; 
+const imagenesOportunidad = [img2, img3, img4, img5, img6, img7, img8, img9];
 const oportunidadesIncorrectas = ref(0);
 const imagenOportunidad = ref(img);
 const temas = ref(false)
@@ -285,7 +290,7 @@ function seleccionarTema(tema) {
   temaSeleccionado.value = tema;
 }
 
-const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATÓN']; 
+const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATÓN'];
 const palabraSeleccionada = ref(null);
 const letrasAdivinadas = ref([]);
 const letrasIncorrectas = ref([]);
@@ -302,8 +307,11 @@ function seleccionarDificultad(dificultad) {
 function adivinarLetra(letra) {
   if (palabraSeleccionada.value && !letrasAdivinadas.value.includes(letra) && !letrasIncorrectas.value.includes(letra)) {
     if (palabraSeleccionada.value.includes(letra)) {
-     
       letrasAdivinadas.value.push(letra);
+      palabraActual.value = palabraSeleccionada.value
+        .split('')
+        .map(char => (letrasAdivinadas.value.includes(char) ? char : '_'))
+        .join('');
     } else {
       letrasIncorrectas.value.push(letra);
       oportunidadesIncorrectas.value++;
@@ -311,11 +319,13 @@ function adivinarLetra(letra) {
       if (oportunidadesIncorrectas.value < imagenesOportunidad.length) {
         imagenOportunidad.value = imagenesOportunidad[oportunidadesIncorrectas.value];
       } else {
+        imagenOportunidad.value = img;
         console.log('Juego terminado');
       }
     }
   }
 }
+
 </script>
 
 
@@ -377,7 +387,7 @@ section {
   gap: 70px;
 }
 
-.letras{
+.letras {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -385,8 +395,23 @@ section {
   gap: 5px;
 }
 
-.letras button{
+.letras button {
   width: 100px;
   height: 30px;
+}
+
+.letras-adivinadas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  gap: 10px;
+}
+
+.letras-adivinadas .letra-adivinada {
+  text-align: center;
+  width: 30px;
+  font-size: 24px;
+  color: rgb(253, 239, 214);
 }
 </style>
