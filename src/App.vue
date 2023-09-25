@@ -25,7 +25,15 @@
             v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Facil'">
             <div class="vif">
               <img :src="imagenOportunidad">
-              <div style="display: flex; flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
+              <div v-if="palabraAdivinada">
+              <button @click="seleccionarOtroTema">Elegir otro tema</button>
+              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+            </div>
+            <div v-if="palabraIncorrecta">
+              <button @click="seleccionarOtroTema">Elegir otro tema</button>
+              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+            </div>
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <!-- Aquí muestra las letras adivinadas -->
                 <div class="letras-adivinadas">
                   <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
@@ -38,16 +46,7 @@
                 </button>
               </div>
             </div>
-            <div v-if="palabraAdivinada">
-              <img :src="img10">
-              <button @click="seleccionarOtroTema">Elegir otro tema</button>
-              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
-            </div>
-            <div v-if="palabraIncorrecta">
-              <img :src="img11">
-              <button @click="seleccionarOtroTema">Elegir otro tema</button>
-              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
-            </div>
+           
 
           </div>
           <div style="display: flex;"
@@ -283,6 +282,8 @@ import img7 from '/src/7.jpg'
 import img8 from '/src/8.jpg'
 import img9 from '/src/9.jpg'
 import img10 from '/src/10.jpg'
+import img11 from '/src/11.jpg'
+
 
 const juegoGanado = ref(false);
 const juegoPerdido = ref(false);
@@ -335,6 +336,7 @@ function adivinarLetra(letra) {
         if (palabraActual.value === palabraSeleccionada.value) {
           juegoGanado.value = true;
           palabraAdivinada.value = true;
+          imagenOportunidad.value = img10; // Cambiar a la imagen 10 cuando gane
           console.log('¡Ganaste!');
         }
       } else {
@@ -344,7 +346,7 @@ function adivinarLetra(letra) {
         if (oportunidadesIncorrectas.value < imagenesOportunidad.length) {
           imagenOportunidad.value = imagenesOportunidad[oportunidadesIncorrectas.value];
         } else {
-          imagenOportunidad.value = img;
+          imagenOportunidad.value = img11; // Cambiar a la imagen 11 cuando pierda
           juegoPerdido.value = true;
           palabraIncorrecta.value = true;
           console.log('¡Perdiste!');
@@ -360,7 +362,7 @@ function reiniciarJuego() {
   letrasAdivinadas.value = [];
   letrasIncorrectas.value = [];
   oportunidadesIncorrectas.value = 0;
-  imagenOportunidad.value = img;
+  imagenOportunidad.value = imagenesOportunidad[0]; // Restablecer a la imagen 2
   juegoGanado.value = false;
   juegoPerdido.value = false;
   dificultadSeleccionada.value = null;
@@ -434,7 +436,7 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 70px;
+  gap: 55px;
 }
 
 .letras {
@@ -461,7 +463,7 @@ section {
 .letras-adivinadas .letra-adivinada {
   text-align: center;
   width: 30px;
-  font-size: 24px;
+  font-size: 24px; 
   color: rgb(253, 239, 214);
 }
 </style>
