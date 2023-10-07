@@ -26,15 +26,14 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-              <button @click="seleccionarOtroTema">Elegir otro tema</button>
-              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
-            </div>
-            <div v-if="palabraIncorrecta">
-              <button @click="seleccionarOtroTema">Elegir otro tema</button>
-              <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
-            </div>
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div v-if="palabraIncorrecta">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
-                <!-- Aquí muestra las letras adivinadas -->
                 <div class="letras-adivinadas">
                   <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
                 </div>
@@ -46,36 +45,58 @@
                 </button>
               </div>
             </div>
-           
-
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Animales' && dificultadSeleccionada === 'Dificil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -290,10 +311,13 @@ const juegoPerdido = ref(false);
 const imagenesOportunidad = [img2, img3, img4, img5, img6, img7, img8, img9];
 const oportunidadesIncorrectas = ref(0);
 const imagenOportunidad = ref(img);
+const imagenesOportunidadMedio = [img5, img6, img7, img8, img9,]; // Imágenes específicas para dificultad media
 const temas = ref(false)
 const temaSeleccionado = ref(null);
 const dificultadSeleccionada = ref(null);
 const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATON'];
+const palabrasAnimalesMedio= ['ORANGUTAN', 'COCODRILO', 'RINOCERONTE', 'ARMADILLO'];
+const palabrasAnimalesDificl = ['ORNITORRINCO', 'TARANTULA', 'CANGURO', 'LEOPARDO'];
 const palabraSeleccionada = ref(null);
 const letrasAdivinadas = ref([]);
 const letrasIncorrectas = ref([]);
@@ -318,11 +342,26 @@ function seleccionarTema(tema) {
 
 function seleccionarDificultad(dificultad) {
   dificultadSeleccionada.value = dificultad;
-  if (temaSeleccionado.value === 'Animales' && dificultad === 'Facil') {
-    palabraSeleccionada.value = palabrasAnimalesFacil[Math.floor(Math.random() * palabrasAnimalesFacil.length)];
+
+  if (temaSeleccionado.value === 'Animales') {
+    if (dificultad === 'Facil') {
+      palabraSeleccionada.value = palabrasAnimalesFacil[Math.floor(Math.random() * palabrasAnimalesFacil.length)];
+    } else if (dificultad === 'Medio') {
+      palabraSeleccionada.value = palabrasAnimalesMedio[Math.floor(Math.random() * palabrasAnimalesMedio.length)];
+      oportunidadesIncorrectas.value = 3; 
+      imagenOportunidad.value = img;
+    } else if (dificultad === 'Dificil') {
+      palabraSeleccionada.value = palabrasAnimalesDificl[Math.floor(Math.random() * palabrasAnimalesDificl.length)];
+      oportunidadesIncorrectas.value = 2; 
+      imagenOportunidad.value = img;    }
     palabraActual.value = palabraSeleccionada.value;
+  } else {
+    oportunidadesIncorrectas.value = 8; 
+    palabraSeleccionada.value = null;
+    palabraActual.value = ''; 
   }
 }
+
 
 function adivinarLetra(letra) {
   if (!juegoGanado.value && !juegoPerdido.value) {
@@ -463,7 +502,7 @@ section {
 .letras-adivinadas .letra-adivinada {
   text-align: center;
   width: 30px;
-  font-size: 24px; 
+  font-size: 24px;
   color: rgb(253, 239, 214);
 }
 </style>
