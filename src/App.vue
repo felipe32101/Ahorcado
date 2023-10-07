@@ -103,180 +103,316 @@
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Facil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              <img :src="imagenOportunidad">
+              <div v-if="palabraAdivinada">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div v-if="palabraIncorrecta">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                <div class="letras-adivinadas">
+                  <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                </div>
               </div>
               <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+                <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                  :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                  {{ letra }}
+                </button>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Dificigil'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Frutas' && dificultadSeleccionada === 'Dificil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Facil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              <img :src="imagenOportunidad">
+              <div v-if="palabraAdivinada">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div v-if="palabraIncorrecta">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                <div class="letras-adivinadas">
+                  <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                </div>
               </div>
               <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+                <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                  :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                  {{ letra }}
+                </button>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Dificigil'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Ciudades' && dificultadSeleccionada === 'Dificil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Facil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              <img :src="imagenOportunidad">
+              <div v-if="palabraAdivinada">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div v-if="palabraIncorrecta">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                <div class="letras-adivinadas">
+                  <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                </div>
               </div>
               <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+                <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                  :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                  {{ letra }}
+                </button>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
-            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Dificigil'">
+            v-if="dificultadSeleccionada && temaSeleccionado === 'Colores' && dificultadSeleccionada === 'Dificil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Facil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
+              <img :src="imagenOportunidad">
+              <div v-if="palabraAdivinada">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div v-if="palabraIncorrecta">
+                <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+              </div>
+              <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                <div class="letras-adivinadas">
+                  <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                </div>
               </div>
               <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+                <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                  :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                  {{ letra }}
+                </button>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Medio'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
           <div style="display: flex;"
             v-if="dificultadSeleccionada && temaSeleccionado === 'Marcas' && dificultadSeleccionada === 'Dificil'">
             <div class="vif">
-              <img :src="img">
-              <div style="display: flex;flex-direction: row; width: 100%; gap: 20%; justify-content: center;">
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%;"></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-                <div class="palabra" style="border-bottom: solid 2px black; width: 4%; "></div>
-              </div>
-              <div class="letras">
-                <button v-for="letra in alfabeto" :key="letra">{{ letra }}</button>
+              <div class="vif">
+                <img :src="imagenOportunidad">
+                <div v-if="palabraAdivinada">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div v-if="palabraIncorrecta">
+                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                </div>
+                <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
+                  <div class="letras-adivinadas">
+                    <span v-for="letra in palabraActual">{{ letrasAdivinadas.includes(letra) ? letra : '_' }}</span>
+                  </div>
+                </div>
+                <div class="letras">
+                  <button v-for="letra in alfabeto" :key="letra" @click="adivinarLetra(letra)"
+                    :disabled="letrasAdivinadas.includes(letra) || letrasIncorrectas.includes(letra)">
+                    {{ letra }}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -311,13 +447,95 @@ const juegoPerdido = ref(false);
 const imagenesOportunidad = [img2, img3, img4, img5, img6, img7, img8, img9];
 const oportunidadesIncorrectas = ref(0);
 const imagenOportunidad = ref(img);
-const imagenesOportunidadMedio = [img5, img6, img7, img8, img9,]; // Imágenes específicas para dificultad media
+const imagenesOportunidadMedio = [img5, img6, img7, img8, img9,];
 const temas = ref(false)
 const temaSeleccionado = ref(null);
 const dificultadSeleccionada = ref(null);
-const palabrasAnimalesFacil = ['GATO', 'PERRO', 'CONEJO', 'RATON'];
-const palabrasAnimalesMedio= ['ORANGUTAN', 'COCODRILO', 'RINOCERONTE', 'ARMADILLO'];
-const palabrasAnimalesDificl = ['ORNITORRINCO', 'TARANTULA', 'CANGURO', 'LEOPARDO'];
+const temasInfo = {
+  Animales: {
+    Facil: {
+      palabras: ['GATO', 'PERRO', 'CONEJO', 'RATON'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Medio: {
+      palabras: ['ORANGUTAN', 'COCODRILO', 'RINOCERONTE', 'ARMADILLO'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Dificil: {
+      palabras: ['ORNITORRINCO', 'TARANTULA', 'CANGURO', 'LEOPARDO'],
+      oportunidadesIncorrectas: 2,
+      imagenOportunidad: img,
+    },
+  }, Frutas: {
+    Facil: {
+      palabras: ['MANZANA', 'BANANA', 'UVA', 'PERA'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Medio: {
+      palabras: ['NARANJA', 'SANDÍA', 'KIWI', 'CEREZA'],
+      oportunidadesIncorrectas: 3,
+      imagenOportunidad: img,
+    },
+    Dificil: {
+      palabras: ['GUAYABA', 'MANGO', 'FRAMBUESA', 'PIÑA'],
+      oportunidadesIncorrectas: 2,
+      imagenOportunidad: img,
+    },
+  }, Ciudades: {
+    Facil: {
+      palabras: ['PARIS', 'LONDRES', 'ROMA', 'MADRID'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Medio: {
+      palabras: ['NUEVA YORK', 'TOKIO', 'BERLÍN', 'MOSCÚ'],
+      oportunidadesIncorrectas: 3,
+      imagenOportunidad: img,
+    },
+    Dificil: {
+      palabras: ['SINGAPUR', 'DUBÁI', 'SYDNEY', 'RÍO DE JANEIRO'],
+      oportunidadesIncorrectas: 2,
+      imagenOportunidad: img,
+    },
+  },
+  Colores: {
+    Facil: {
+      palabras: ['ROJO', 'VERDE', 'AZUL', 'AMARILLO'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Medio: {
+      palabras: ['NARANJA', 'VIOLETA', 'CELESTE', 'GRIS'],
+      oportunidadesIncorrectas: 3,
+      imagenOportunidad: img,
+    },
+    Dificil: {
+      palabras: ['MAGENTA', 'TURQUESA', 'ESMERALDA', 'CARMESÍ'],
+      oportunidadesIncorrectas: 2,
+      imagenOportunidad: img,
+    },
+  },
+  Marcas: {
+    Facil: {
+      palabras: ['NIKE', 'ADIDAS', 'PUMA', 'REEBOK'],
+      oportunidadesIncorrectas: 1,
+      imagenOportunidad: img,
+    },
+    Medio: {
+      palabras: ['APPLE', 'SAMSUNG', 'SONY', 'MICROSOFT'],
+      oportunidadesIncorrectas: 3,
+      imagenOportunidad: img,
+    },
+    Dificil: {
+      palabras: ['FERRARI', 'LAMBORGHINI', 'BUGATTI', 'MASERATI'],
+      oportunidadesIncorrectas: 2,
+      imagenOportunidad: img,
+    },
+  },
+};
 const palabraSeleccionada = ref(null);
 const letrasAdivinadas = ref([]);
 const letrasIncorrectas = ref([]);
@@ -334,31 +552,23 @@ function iniTemas() {
   temaSeleccionado.value = null;
 }
 
+
 function seleccionarTema(tema) {
   temaSeleccionado.value = tema;
 }
 
-
-
 function seleccionarDificultad(dificultad) {
   dificultadSeleccionada.value = dificultad;
 
-  if (temaSeleccionado.value === 'Animales') {
-    if (dificultad === 'Facil') {
-      palabraSeleccionada.value = palabrasAnimalesFacil[Math.floor(Math.random() * palabrasAnimalesFacil.length)];
-    } else if (dificultad === 'Medio') {
-      palabraSeleccionada.value = palabrasAnimalesMedio[Math.floor(Math.random() * palabrasAnimalesMedio.length)];
-      oportunidadesIncorrectas.value = 3; 
-      imagenOportunidad.value = img;
-    } else if (dificultad === 'Dificil') {
-      palabraSeleccionada.value = palabrasAnimalesDificl[Math.floor(Math.random() * palabrasAnimalesDificl.length)];
-      oportunidadesIncorrectas.value = 2; 
-      imagenOportunidad.value = img;    }
+  if (temaSeleccionado.value && dificultadSeleccionada.value) {
+    const temaInfo = temasInfo[temaSeleccionado.value];
+    const dificultadInfo = temaInfo[dificultadSeleccionada.value];
+
+    palabraSeleccionada.value = dificultadInfo.palabras[Math.floor(Math.random() * dificultadInfo.palabras.length)];
+    oportunidadesIncorrectas.value = dificultadInfo.oportunidadesIncorrectas;
+    imagenOportunidad.value = dificultadInfo.imagenOportunidad;
+
     palabraActual.value = palabraSeleccionada.value;
-  } else {
-    oportunidadesIncorrectas.value = 8; 
-    palabraSeleccionada.value = null;
-    palabraActual.value = ''; 
   }
 }
 
@@ -375,7 +585,7 @@ function adivinarLetra(letra) {
         if (palabraActual.value === palabraSeleccionada.value) {
           juegoGanado.value = true;
           palabraAdivinada.value = true;
-          imagenOportunidad.value = img10; // Cambiar a la imagen 10 cuando gane
+          imagenOportunidad.value = img10;
           console.log('¡Ganaste!');
         }
       } else {
@@ -385,7 +595,7 @@ function adivinarLetra(letra) {
         if (oportunidadesIncorrectas.value < imagenesOportunidad.length) {
           imagenOportunidad.value = imagenesOportunidad[oportunidadesIncorrectas.value];
         } else {
-          imagenOportunidad.value = img11; // Cambiar a la imagen 11 cuando pierda
+          imagenOportunidad.value = img11;
           juegoPerdido.value = true;
           palabraIncorrecta.value = true;
           console.log('¡Perdiste!');
@@ -401,7 +611,7 @@ function reiniciarJuego() {
   letrasAdivinadas.value = [];
   letrasIncorrectas.value = [];
   oportunidadesIncorrectas.value = 0;
-  imagenOportunidad.value = imagenesOportunidad[0]; // Restablecer a la imagen 2
+  imagenOportunidad.value = imagenesOportunidad[0];
   juegoGanado.value = false;
   juegoPerdido.value = false;
   dificultadSeleccionada.value = null;
