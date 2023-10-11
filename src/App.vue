@@ -620,6 +620,21 @@ function reiniciarJuego() {
   palabraAdivinada.value = false;
   palabraIncorrecta.value = false;
 }
+
+function reiniciarJuegodos() {
+  juegoGanado.value = false;
+  juegoPerdido.value = false;
+  oportunidadesIncorrectas.value = 0;
+  imagenOportunidad.value = img;
+  dificultadSeleccionada.value = null;
+  palabraSeleccionada.value = null;
+  letrasAdivinadas.value = [];
+  letrasIncorrectas.value = [];
+  palabraActual.value = '';
+  palabraAdivinada.value = false;
+  palabraIncorrecta.value = false;
+}
+
 function seleccionarOtroTema() {
   temaSeleccionado.value = null;
   dificultadSeleccionada.value = null;
@@ -628,7 +643,7 @@ function seleccionarOtroTema() {
 
 function seleccionarOtraDificultad() {
   dificultadSeleccionada.value = null;
-  reiniciarJuego();
+  reiniciarJuegodos();
 }
 </script>
 
