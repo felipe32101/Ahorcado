@@ -465,7 +465,7 @@ const temasInfo = {
     },
     Dificil: {
       palabras: ['ORNITORRINCO', 'TARANTULA', 'CANGURO', 'LEOPARDO'],
-      oportunidadesIncorrectas: 4,
+      oportunidadesIncorrectas: 5,
       imagenOportunidad: img,
     },
   }, Frutas: {
@@ -481,7 +481,7 @@ const temasInfo = {
     },
     Dificil: {
       palabras: ['GUAYABA', 'MANGO', 'FRAMBUESA', 'PIÑA'],
-      oportunidadesIncorrectas: 4,
+      oportunidadesIncorrectas: 5,
       imagenOportunidad: img,
     },
   }, Ciudades: {
@@ -497,7 +497,7 @@ const temasInfo = {
     },
     Dificil: {
       palabras: ['SINGAPUR', 'DUBAI', 'SYDNEY', 'RIO DE JANEIRO'],
-      oportunidadesIncorrectas: 4,
+      oportunidadesIncorrectas: 5,
       imagenOportunidad: img,
     },
   },
@@ -514,7 +514,7 @@ const temasInfo = {
     },
     Dificil: {
       palabras: ['MAGENTA', 'TURQUESA', 'ESMERALDA', 'CARMESI'],
-      oportunidadesIncorrectas: 4,
+      oportunidadesIncorrectas: 5,
       imagenOportunidad: img,
     },
   },
@@ -531,7 +531,7 @@ const temasInfo = {
     },
     Dificil: {
       palabras: ['FERRARI', 'LAMBORGHINI', 'BUGATTI', 'MASERATI'],
-      oportunidadesIncorrectas: 4,
+      oportunidadesIncorrectas: 5,
       imagenOportunidad: img,
     },
   },
