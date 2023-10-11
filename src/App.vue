@@ -26,12 +26,12 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div v-if="palabraIncorrecta">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <div class="letras-adivinadas">
@@ -52,12 +52,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -79,12 +79,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -105,12 +105,12 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div v-if="palabraIncorrecta">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <div class="letras-adivinadas">
@@ -131,12 +131,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -158,12 +158,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -184,12 +184,12 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div v-if="palabraIncorrecta">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <div class="letras-adivinadas">
@@ -210,12 +210,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -237,12 +237,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -263,12 +263,12 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div v-if="palabraIncorrecta">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <div class="letras-adivinadas">
@@ -289,12 +289,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -316,12 +316,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -342,12 +342,12 @@
             <div class="vif">
               <img :src="imagenOportunidad">
               <div v-if="palabraAdivinada">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div v-if="palabraIncorrecta">
-                <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
               </div>
               <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                 <div class="letras-adivinadas">
@@ -368,12 +368,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -395,12 +395,12 @@
               <div class="vif">
                 <img :src="imagenOportunidad">
                 <div v-if="palabraAdivinada">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div v-if="palabraIncorrecta">
-                  <button @click="seleccionarOtroTema">Elegir otro tema</button>
-                  <button @click="seleccionarOtraDificultad">Elegir otra dificultad</button>
+                  <button @click="seleccionarOtroTema" class="botonImp">Elegir otro tema</button>
+                  <button @click="seleccionarOtraDificultad" class="botonImp">Elegir otra dificultad</button>
                 </div>
                 <div style="display: flex; flex-direction: row; width: 100%; gap: 10%; justify-content: center;">
                   <div class="letras-adivinadas">
@@ -731,5 +731,23 @@ section {
   width: 30px;
   font-size: 24px;
   color: rgb(253, 239, 214);
+}
+
+.botonImp{
+  background: linear-gradient(rgb(255, 206, 115), rgb(114, 114, 255));
+  /* background-color: rgb(126, 126, 222); */
+  border-radius: 50px;
+  border: 0;
+  height: 40px;
+  width: 150px;
+  font-family: 'Franklin Gothic Medium';
+  margin-left: 15px;
+}
+
+.botonImp:hover{
+  background-color: rgb(239, 203, 137);
+  cursor: pointer;
+  height: 45px;
+  width: 155px;
 }
 </style>
