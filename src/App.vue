@@ -491,12 +491,12 @@ const temasInfo = {
       imagenOportunidad: img,
     },
     Medio: {
-      palabras: ['NUEVA YORK', 'TOKIO', 'BERLÍN', 'MOSCÚ'],
+      palabras: ['NUEVA YORK', 'TOKIO', 'BERLIN', 'MOSCU'],
       oportunidadesIncorrectas: 3,
       imagenOportunidad: img,
     },
     Dificil: {
-      palabras: ['SINGAPUR', 'DUBÁI', 'SYDNEY', 'RÍO DE JANEIRO'],
+      palabras: ['SINGAPUR', 'DUBAI', 'SYDNEY', 'RIO DE JANEIRO'],
       oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
@@ -513,7 +513,7 @@ const temasInfo = {
       imagenOportunidad: img,
     },
     Dificil: {
-      palabras: ['MAGENTA', 'TURQUESA', 'ESMERALDA', 'CARMESÍ'],
+      palabras: ['MAGENTA', 'TURQUESA', 'ESMERALDA', 'CARMESI'],
       oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
@@ -536,6 +536,7 @@ const temasInfo = {
     },
   },
 };
+
 const palabraSeleccionada = ref(null);
 const letrasAdivinadas = ref([]);
 const letrasIncorrectas = ref([]);
@@ -606,16 +607,18 @@ function adivinarLetra(letra) {
 }
 
 function reiniciarJuego() {
-  adivinada.value = false;
+  juegoGanado.value = false;
+  juegoPerdido.value = false;
+  oportunidadesIncorrectas.value = 0;
+  imagenOportunidad.value = img;
+  temaSeleccionado.value = null;
+  dificultadSeleccionada.value = null;
   palabraSeleccionada.value = null;
   letrasAdivinadas.value = [];
   letrasIncorrectas.value = [];
-  oportunidadesIncorrectas.value = 0;
-  imagenOportunidad.value = imagenesOportunidad[0];
-  juegoGanado.value = false;
-  juegoPerdido.value = false;
-  dificultadSeleccionada.value = null;
   palabraActual.value = '';
+  palabraAdivinada.value = false;
+  palabraIncorrecta.value = false;
 }
 function seleccionarOtroTema() {
   temaSeleccionado.value = null;
@@ -628,7 +631,6 @@ function seleccionarOtraDificultad() {
   reiniciarJuego();
 }
 </script>
-
 
 <style>
 img {
