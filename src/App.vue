@@ -455,83 +455,83 @@ const temasInfo = {
   Animales: {
     Facil: {
       palabras: ['GATO', 'PERRO', 'CONEJO', 'RATON'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: -1,
       imagenOportunidad: img,
     },
     Medio: {
       palabras: ['ORANGUTAN', 'COCODRILO', 'RINOCERONTE', 'ARMADILLO'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
     Dificil: {
       palabras: ['ORNITORRINCO', 'TARANTULA', 'CANGURO', 'LEOPARDO'],
-      oportunidadesIncorrectas: 2,
+      oportunidadesIncorrectas: 4,
       imagenOportunidad: img,
     },
   }, Frutas: {
     Facil: {
       palabras: ['MANZANA', 'BANANA', 'UVA', 'PERA'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: -1,
       imagenOportunidad: img,
     },
     Medio: {
       palabras: ['NARANJA', 'SANDÍA', 'KIWI', 'CEREZA'],
-      oportunidadesIncorrectas: 3,
+      oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
     Dificil: {
       palabras: ['GUAYABA', 'MANGO', 'FRAMBUESA', 'PIÑA'],
-      oportunidadesIncorrectas: 2,
+      oportunidadesIncorrectas: 4,
       imagenOportunidad: img,
     },
   }, Ciudades: {
     Facil: {
       palabras: ['PARIS', 'LONDRES', 'ROMA', 'MADRID'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: -1,
       imagenOportunidad: img,
     },
     Medio: {
       palabras: ['NUEVA YORK', 'TOKIO', 'BERLIN', 'MOSCU'],
-      oportunidadesIncorrectas: 3,
+      oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
     Dificil: {
       palabras: ['SINGAPUR', 'DUBAI', 'SYDNEY', 'RIO DE JANEIRO'],
-      oportunidadesIncorrectas: 2,
+      oportunidadesIncorrectas: 4,
       imagenOportunidad: img,
     },
   },
   Colores: {
     Facil: {
       palabras: ['ROJO', 'VERDE', 'AZUL', 'AMARILLO'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: -1,
       imagenOportunidad: img,
     },
     Medio: {
       palabras: ['NARANJA', 'VIOLETA', 'CELESTE', 'GRIS'],
-      oportunidadesIncorrectas: 3,
+      oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
     Dificil: {
       palabras: ['MAGENTA', 'TURQUESA', 'ESMERALDA', 'CARMESI'],
-      oportunidadesIncorrectas: 2,
+      oportunidadesIncorrectas: 4,
       imagenOportunidad: img,
     },
   },
   Marcas: {
     Facil: {
       palabras: ['NIKE', 'ADIDAS', 'PUMA', 'REEBOK'],
-      oportunidadesIncorrectas: 1,
+      oportunidadesIncorrectas: -1,
       imagenOportunidad: img,
     },
     Medio: {
       palabras: ['APPLE', 'SAMSUNG', 'SONY', 'MICROSOFT'],
-      oportunidadesIncorrectas: 3,
+      oportunidadesIncorrectas: 2,
       imagenOportunidad: img,
     },
     Dificil: {
       palabras: ['FERRARI', 'LAMBORGHINI', 'BUGATTI', 'MASERATI'],
-      oportunidadesIncorrectas: 2,
+      oportunidadesIncorrectas: 4,
       imagenOportunidad: img,
     },
   },
